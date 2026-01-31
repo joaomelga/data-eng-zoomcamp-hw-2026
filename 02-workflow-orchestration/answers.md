@@ -52,3 +52,9 @@ Rendered value for `file`: {{inputs.taxi}}_tripdata_{{inputs.year}}-{{inputs.mon
 223406 + 398632 + 447770
 
 = 1734051
+
+# Question 5
+
+./trigger_loop.sh 2020 green --month-start 01 --month-end 01
+
+1925152
