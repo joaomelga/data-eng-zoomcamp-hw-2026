@@ -33,3 +33,12 @@ Open the execution in Kestra UI (example):
 http://localhost:8080/ui/main/executions/zoomcamp/09_local_taxi_scheduled/5Ql9J5d7vj82ugwtPZZFEo
 
 Rendered value for `file`: {{inputs.taxi}}_tripdata_{{inputs.year}}-{{inputs.month}}.csv
+
+# Question 3
+
+./trigger_loop.sh 2020 yellow
+
+3007292 + 237993 + 348371 + 549760 + 800412 + 1007284 + 
+1341012 + 1681131 + 1508985 + 1461897 + 6405008 + 6299354
+
+= 24648499
