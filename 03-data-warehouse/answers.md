@@ -74,3 +74,53 @@ Run:
   ```
 
 Answer: 8333
+
+# Question 5
+
+Answer: Partition by tpep_dropoff_datetime and Cluster on VendorID
+
+# Question 6
+
+First, run:
+
+  ```SQL
+  SELECT DISTINCT VendorID
+  FROM `nytaxi.tripdata`
+  WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15 23:59:59';
+  ```
+
+Estimated size: 310,24 Mo.
+
+Then, run:
+
+  ```SQL
+  CREATE OR REPLACE TABLE `nytaxi.tripdata_partitioned`
+  PARTITION BY DATE(tpep_dropoff_datetime)
+  CLUSTER BY VendorID
+  AS
+  SELECT * FROM `nytaxi.tripdata`;
+  ```
+
+Now run the same query, but for the partitioned table:
+
+  ```SQL
+  SELECT DISTINCT VendorID
+  FROM `nytaxi.tripdata_partitioned`
+  WHERE tpep_dropoff_datetime BETWEEN '2024-03-01' AND '2024-03-15 23:59:59';
+  ```
+
+Estimated size: 26,84 Mo.
+
+Answer: 310.24 MB for non-partitioned table and 26.84 MB for the partitioned table
+
+# Question 7
+
+Answer: GCP Bucket
+
+# Question 8
+
+Answer: false, in databases with size smaller then 1 Go clustering might not affect performance.
+
+# Question 9
+
+Answer: it estimates 0, because COUNT(*) without filters is essentially free, as it uses cached metadata rather than scanning table data.
