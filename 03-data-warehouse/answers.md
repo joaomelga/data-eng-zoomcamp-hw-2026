@@ -33,11 +33,32 @@ Anwser: 20332093
 Paste the queries separatelly:
 
   ```SQL
+  -- External
   SELECT COUNT(DISTINCT PULocationID) AS distinct_pu_locations
   FROM `nytaxi.external_tripdata`;
 
+  -- Regular
   SELECT COUNT(DISTINCT PULocationID) AS distinct_pu_locations
   FROM `nytaxi.tripdata`;
   ```
 
 Results: 0 MB for the External Table and 155.12 MB for the Materialized Table
+
+# Question 3
+
+Estimate queries:
+
+  ```SQL
+  -- query 1
+  SELECT PULocationID
+  FROM `nytaxi.tripdata`;
+
+  -- query 2
+  SELECT PULocationID, DOLocationID
+  FROM `nytaxi.tripdata`;
+  ```
+
+Obs: query 2 estimates approximately double the bytes of query 1.
+
+Answer: BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires 
+reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.
