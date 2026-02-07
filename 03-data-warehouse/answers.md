@@ -1,17 +1,20 @@
-Pre-requisites
+# Pre-requisites
+
 - Create GCP account
-- Create GCP bucket
+- Create GCP bucket named `yellow-taxi-data-jm`
 - Generate `gcs.json` credentials file
 - Run `./yellow_taxi_data.py`
 - Create external and regular tables by running:
 
   ```SQL
+  -- Create external table
   CREATE OR REPLACE EXTERNAL TABLE `nytaxi.external_tripdata`
   OPTIONS (
     format = 'PARQUET',
     uris = ['gs://yellow-taxi-data-jm/yellow_tripdata_2024-*.parquet']
   );
 
+  -- Create regular table
   CREATE OR REPLACE TABLE `nytaxi.tripdata`
   AS
   SELECT * FROM `nytaxi.external_tripdata`;
@@ -19,7 +22,7 @@ Pre-requisites
 
 # Question 1
 
-Run:
+Run query:
 
   ```SQL
   SELECT COUNT(*) AS record_count
@@ -30,7 +33,7 @@ Anwser: 20332093
 
 # Question 2
 
-Paste the queries separatelly:
+Estimate the queries separatelly:
 
   ```SQL
   -- External
@@ -65,7 +68,7 @@ reading more data than querying one column (PULocationID), leading to a higher e
 
 # Question 4
 
-Run:
+Run query:
 
   ```SQL
   SELECT COUNT(*) AS zero_fare_count
@@ -81,7 +84,7 @@ Answer: Partition by tpep_dropoff_datetime and Cluster on VendorID
 
 # Question 6
 
-First, run:
+First, run query:
 
   ```SQL
   SELECT DISTINCT VendorID
@@ -91,7 +94,7 @@ First, run:
 
 Estimated size: 310,24 Mo.
 
-Then, run:
+Then, run command:
 
   ```SQL
   CREATE OR REPLACE TABLE `nytaxi.tripdata_partitioned`
