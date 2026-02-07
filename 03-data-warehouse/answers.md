@@ -62,3 +62,15 @@ Obs: query 2 estimates approximately double the bytes of query 1.
 
 Answer: BigQuery is a columnar database, and it only scans the specific columns requested in the query. Querying two columns (PULocationID, DOLocationID) requires 
 reading more data than querying one column (PULocationID), leading to a higher estimated number of bytes processed.
+
+# Question 4
+
+Run:
+
+  ```SQL
+  SELECT COUNT(*) AS zero_fare_count
+  FROM `nytaxi.tripdata`
+  WHERE fare_amount = 0;
+  ```
+
+Answer: 8333
