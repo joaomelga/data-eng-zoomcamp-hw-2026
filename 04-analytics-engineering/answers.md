@@ -21,3 +21,13 @@ Answer: `int_trips_unioned` only, as we are using `--select`
 # Question 2
 
 Answer: dbt will fail the test, returning a non-zero exit code
+
+# Question 3
+
+Run 
+
+```Bash
+duckdb taxi_rides_ny.duckdb "SELECT COUNT(*) as record_count FROM prod.fct_monthly_zone_revenue;"
+```
+
+Answer: 12184
