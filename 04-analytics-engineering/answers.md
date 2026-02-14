@@ -17,3 +17,7 @@ Run `dbt build --target prod` to create all models and run tests.
 # Question 1
 
 Answer: `int_trips_unioned` only, as we are using `--select`
+
+# Question 2
+
+Answer: dbt will fail the test, returning a non-zero exit code
