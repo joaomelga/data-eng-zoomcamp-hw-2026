@@ -40,4 +40,14 @@ Run
 duckdb taxi_rides_ny.duckdb "SELECT pickup_zone, SUM(revenue_monthly_total_amount) as total_revenue_2020 FROM prod.fct_monthly_zone_revenue WHERE service_type = 'Green' AND EXTRACT(YEAR FROM revenue_month) = 2020 GROUP BY pickup_zone ORDER BY total_revenue_2020 DESC LIMIT 1;"
 ```
 
-Answer: East Harlem North │ 1817429.150 
+Answer: East Harlem North │ 1817429.150
+
+# Question 5
+
+Run
+
+```Bash
+duckdb taxi_rides_ny.duckdb "SELECT SUM(total_monthly_trips) as total_trips_october_2019 FROM prod.fct_monthly_zone_revenue WHERE service_type = 'Green' AND revenue_month = '2019-10-01';"
+```
+
+Answer: 384624
