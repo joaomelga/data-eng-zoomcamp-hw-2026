@@ -13,3 +13,7 @@ Run `dbt debug` to test connection.
 Run `dbt deps` to install dbt packages (it creates `./dbt_packages` directory).
 
 Run `dbt build --target prod` to create all models and run tests.
+
+# Question 1
+
+Answer: `int_trips_unioned` only, as we are using `--select`
