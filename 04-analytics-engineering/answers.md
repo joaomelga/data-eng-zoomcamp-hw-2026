@@ -51,3 +51,30 @@ duckdb taxi_rides_ny.duckdb "SELECT SUM(total_monthly_trips) as total_trips_octo
 ```
 
 Answer: 384624
+
+# Question 6
+
+Download FHV data for 2019:
+
+```Bash
+cd taxi_rides_ny
+python download_fhv_data.py
+```
+
+Load FHV data into DuckDB:
+
+```Bash
+python load_fhv_data.py
+```
+
+Build the staging model:
+
+```Bash
+dbt build --select stg_fhv_tripdata --target prod
+```
+
+```Bash
+duckdb taxi_rides_ny.duckdb "SELECT COUNT(*) as record_count FROM prod.stg_fhv_tripdata;"
+```
+
+Answer: 43244693
