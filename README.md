@@ -16,8 +16,9 @@ The Data Engineering Zoomcamp is a free 9-week course covering data engineering 
 | 2 | Workflow Orchestration (Kestra) |
 | 3 | Data Warehousing (BigQuery) |
 | 4 | Analytics Engineering (dbt) |
-| 5 | Batch Processing (Spark) |
-| 6 | Streaming (Kafka) |
+| 5 | Data Platforms (Bruin) |
+| 6 | Batch Processing (Spark) |
+| 7 | Streaming (Kafka) |
 | - | Final Project |
 
 ## Repository Structure
