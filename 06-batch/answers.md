@@ -31,3 +31,13 @@ docker compose -f 06-batch/docker-compose.yml run --rm spark q2
 ```
 
 Answer: `average_size_mb=25.3313` => 25 is the closest
+
+# Question 3
+
+Run:
+
+```bash
+docker compose -f 06-batch/docker-compose.yml run --rm spark q3
+```
+
+Answer: `162604`
