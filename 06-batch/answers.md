@@ -51,3 +51,13 @@ docker compose -f 06-batch/docker-compose.yml run --rm spark q4
 ```
 
 Answer: `90.6467`
+
+# Question 5
+
+Run:
+
+```bash
+docker compose -f 06-batch/docker-compose.yml run --rm spark q5
+```
+
+Answer: `4040`
