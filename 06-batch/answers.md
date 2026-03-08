@@ -61,3 +61,16 @@ docker compose -f 06-batch/docker-compose.yml run --rm spark q5
 ```
 
 Answer: `4040`
+
+# Question 6
+
+Run:
+
+```bash
+docker compose -f 06-batch/docker-compose.yml run --rm spark q6
+```
+
+Answer:
+
+- Governor's Island/Ellis Island/Liberty Island: 1
+- Arden Heights: 1
