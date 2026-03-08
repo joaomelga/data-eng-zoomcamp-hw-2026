@@ -1,0 +1,12 @@
+services:
+  spark:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /work
+    volumes:
+      - ../:/work
+    environment:
+      - SPARK_LOCAL_IP=127.0.0.1
+      - PYTHONUNBUFFERED=1
+    entrypoint: ["/bin/bash", "06-batch/scripts/docker_dispatch.sh"]
