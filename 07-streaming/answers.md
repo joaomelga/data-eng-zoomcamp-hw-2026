@@ -101,3 +101,39 @@ LIMIT 3;
 ```
 
 Answer: `74`
+
+# Question 5
+
+Create the PostgreSQL sink table:
+
+```sql
+CREATE TABLE q5_session_streak (
+    PULocationID INT,
+    session_start TIMESTAMP(3),
+    session_end TIMESTAMP(3),
+    num_trips BIGINT,
+    PRIMARY KEY (PULocationID, session_start)
+);
+```
+
+Submit the Flink job ([workshop/src/job/hw_q5_session_streak.py](workshop/src/job/hw_q5_session_streak.py)):
+
+```bash
+docker exec workshop-jobmanager-1 flink run -py /opt/src/job/hw_q5_session_streak.py
+```
+
+Query results:
+
+```sql
+SELECT pulocationid, num_trips, session_start, session_end
+FROM q5_session_streak
+ORDER BY num_trips DESC
+LIMIT 1;
+
+-- Output
+--  pulocationid | num_trips |    session_start    |     session_end
+-- --------------+-----------+---------------------+---------------------
+--            74 |        81 | 2025-10-08 06:46:14 | 2025-10-08 08:27:40
+```
+
+Answer: `81`
