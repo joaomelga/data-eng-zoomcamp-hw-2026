@@ -50,3 +50,17 @@ took 6.42 seconds
 ```
 
 Answer: `10 seconds`
+
+# Question 3
+
+Run the consumer script ([src/consumer.py](src/consumer.py)):
+
+```bash
+python src/consumer.py
+
+# Output
+Total messages: 49416
+Trips with trip_distance > 5.0: 8506
+```
+
+Answer: `8506`
