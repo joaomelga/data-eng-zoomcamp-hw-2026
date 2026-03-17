@@ -137,3 +137,37 @@ LIMIT 1;
 ```
 
 Answer: `81`
+
+# Question 6
+
+Create the PostgreSQL sink table:
+
+```sql
+CREATE TABLE q6_hourly_tips (
+    window_start TIMESTAMP(3),
+    total_tips DOUBLE PRECISION,
+    PRIMARY KEY (window_start)
+);
+```
+
+Submit the Flink job ([workshop/src/job/hw_q6_hourly_tips.py](workshop/src/job/hw_q6_hourly_tips.py)):
+
+```bash
+docker exec workshop-jobmanager-1 flink run -py /opt/src/job/hw_q6_hourly_tips.py
+```
+
+Query results:
+
+```sql
+SELECT window_start, total_tips
+FROM q6_hourly_tips
+ORDER BY total_tips DESC
+LIMIT 1;
+
+-- Output
+--     window_start     |     total_tips
+-- ---------------------+--------------------
+--  2025-10-16 18:00:00 |  510.8599999999999
+```
+
+Answer: `2025-10-16 18:00:00`
