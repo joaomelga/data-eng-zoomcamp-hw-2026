@@ -64,3 +64,40 @@ Trips with trip_distance > 5.0: 8506
 ```
 
 Answer: `8506`
+
+# Question 4
+
+Create the PostgreSQL sink table:
+
+```sql
+CREATE TABLE q4_tumbling_pickup (
+    window_start TIMESTAMP(3),
+    PULocationID INT,
+    num_trips BIGINT,
+    PRIMARY KEY (window_start, PULocationID)
+);
+```
+
+Submit the Flink job ([workshop/src/job/hw_q4_tumbling_pickup.py](workshop/src/job/hw_q4_tumbling_pickup.py)):
+
+```bash
+docker exec workshop-jobmanager-1 flink run -py /opt/src/job/hw_q4_tumbling_pickup.py
+```
+
+Query results:
+
+```sql
+SELECT pulocationid, num_trips
+FROM q4_tumbling_pickup
+ORDER BY num_trips DESC
+LIMIT 3;
+
+-- Output
+--     window_start     | pulocationid | num_trips
+-- ---------------------+--------------+-----------
+--  2025-10-22 08:40:00 |           74 |        15
+--  2025-10-20 16:30:00 |           74 |        14
+--  2025-10-08 10:35:00 |           74 |        13
+```
+
+Answer: `74`
