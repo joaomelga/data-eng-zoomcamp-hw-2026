@@ -12,7 +12,7 @@
 Run:
 
 ```bash
-docker exec -it workshop-redpanda-1 rpk topic create green-trips
+docker exec -it workshop-redpanda-1 rpk version
 
 # Output
 rpk version: v25.3.9
@@ -26,3 +26,27 @@ Redpanda Cluster
 ```
 
 Answer: `v25.3.9`
+
+# Question 2
+
+Create the topic:
+
+```bash
+docker exec workshop-redpanda-1 rpk topic create green-trips
+
+# Output
+TOPIC        STATUS
+green-trips  OK
+```
+
+Run the producer script ([src/producer.py](src/producer.py)):
+
+```bash
+python src/producer.py
+
+# Output
+Sent 49416 rows
+took 6.42 seconds
+```
+
+Answer: `10 seconds`
